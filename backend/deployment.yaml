@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: match-maker
+    type: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: match-maker
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: match-maker
+        type: backend
+    spec:
+      containers:
+        - image: ghcr.io/pm4fs25match-maker/matchmaker-backend:main
+          imagePullPolicy: Always
+          name: backend
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+      imagePullSecrets:
+        - name: regcred
+      restartPolicy: Always
