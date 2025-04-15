@@ -21,6 +21,9 @@ spec:
         - image: ghcr.io/pm4fs25match-maker/match-maker-backend:main
           imagePullPolicy: Always
           name: backend
+          env:
+            - name: FRONTEND_BASEURL
+              value: http://localhost:4200
           ports:
             - name: http
               containerPort: 8080
