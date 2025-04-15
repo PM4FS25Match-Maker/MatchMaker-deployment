@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service
+  name: backend-service
 spec:
   selector:
     app: match-maker
