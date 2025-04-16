@@ -27,7 +27,7 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: metadata.namespace
-            - name: API_BASE_URL
+            - name: API_URL
               value: backend.$(POD_NAMESPACE).svc.cluster.local:80
           ports:
             - name: http
