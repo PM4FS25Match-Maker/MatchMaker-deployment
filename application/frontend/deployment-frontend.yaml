@@ -27,20 +27,12 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: metadata.namespace
-            - name: API_URL
+            - name: API_BASE_URL
               value: backend.$(POD_NAMESPACE).svc.cluster.local:80
           ports:
             - name: http
               containerPort: 80
           resources: {}
-          volumeMounts:
-            - mountPath: /etc/nginx/conf.d/default.conf
-              name: nginx-config
-              subPath: default.conf
-      volumes:
-        - configMap:
-            name: angular-nginx-config
-          name: nginx-config
       imagePullSecrets:
         - name: regcred
       restartPolicy: Always
