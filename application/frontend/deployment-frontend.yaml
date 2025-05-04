@@ -22,13 +22,8 @@ spec:
           imagePullPolicy: Always
           name: frontend
           env:
-            - name: POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.namespace
             - name: API_URL
-              value: backend.$(POD_NAMESPACE).svc.cluster.local:80
+              value: https://api-mm.pm4.init-lab.ch
           ports:
             - name: http
               containerPort: 80
