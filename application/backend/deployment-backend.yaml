@@ -23,7 +23,7 @@ spec:
           name: backend
           env:
             - name: FRONTEND_BASEURL
-              value: http://localhost:4200
+              value: https://mm.pm4.init-lab.ch
           ports:
             - name: http
               containerPort: 8080
