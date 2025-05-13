@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           name: frontend
           env:
-            - name: API_URL
+            - name: API_BASE_URL
               value: https://api-mm.pm4.init-lab.ch
           ports:
             - name: http
