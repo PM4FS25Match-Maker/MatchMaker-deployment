@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: meea-match-maker-testing
+  labels:
+    app: match-maker
+    type: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: match-maker
+      type: frontend
+  template:
+    metadata:
+      labels:
+        app: match-maker
+        type: frontend
+    spec:
+      containers:
+        - image: ghcr.io/pm4fs25match-maker/match-maker-frontend:main
+          imagePullPolicy: Always
+          name: frontend
+          env:
+            - name: API_BASE_URL
+              value: https://api-mm-testing.pm4.init-lab.ch
+          ports:
+            - name: http
+              containerPort: 80
+          resources: {}
+      imagePullSecrets:
+        - name: regcred
+      restartPolicy: Always

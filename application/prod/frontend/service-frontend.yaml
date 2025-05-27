@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
+  namespace: meea-match-maker-production
 spec:
   selector:
     app: match-maker

@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-metadata: 
-  name: frontend
+metadata:
+  name: backend
   namespace: meea-match-maker-testing
 spec:
   ingressClassName: traefik
   rules:
-  - host: mm.pm4.init-lab.ch
+  - host: api-mm-testing.pm4.init-lab.ch
     http:
       paths:
       - backend:
           service:
-            name: frontend
+            name: backend
             port:
               number: 80
         pathType: ImplementationSpecific

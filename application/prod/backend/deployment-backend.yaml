@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: meea-match-maker-production
+  labels:
+    app: match-maker
+    type: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: match-maker
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: match-maker
+        type: backend
+    spec:
+      containers:
+        - image: ghcr.io/pm4fs25match-maker/match-maker-backend:main
+          imagePullPolicy: Always
+          name: backend
+          env:
+            - name: FRONTEND_BASEURL
+              value: https://mm.pm4.init-lab.ch
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+          ports:
+            - name: http
+              containerPort: 8080
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+      imagePullSecrets:
+        - name: regcred
+      restartPolicy: Always

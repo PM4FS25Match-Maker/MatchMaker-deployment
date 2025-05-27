@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  namespace: meea-match-maker-production
   labels:
     app: match-maker
     type: frontend
