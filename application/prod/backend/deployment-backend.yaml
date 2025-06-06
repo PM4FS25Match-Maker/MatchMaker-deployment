@@ -19,7 +19,7 @@ spec:
         type: backend
     spec:
       containers:
-        - image: ghcr.io/pm4fs25match-maker/match-maker-backend:main
+        - image: ghcr.io/pm4fs25match-maker/match-maker-backend:v0.0.1
           imagePullPolicy: Always
           name: backend
           env:
@@ -34,6 +34,13 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
+          volumeMounts:
+            - mountPath: /data
+              name: h2-storage
       imagePullSecrets:
         - name: regcred
       restartPolicy: Always
+  volumes:
+    - name: h2-storage
+      persistentVolumeClaim:
+        claimName: h2-database
