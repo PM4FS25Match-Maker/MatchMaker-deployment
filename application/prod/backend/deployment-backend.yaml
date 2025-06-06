@@ -40,7 +40,7 @@ spec:
       imagePullSecrets:
         - name: regcred
       restartPolicy: Always
-  volumes:
-    - name: h2-storage
-      persistentVolumeClaim:
-        claimName: h2-database
+      volumes:
+        - name: h2-storage
+          persistentVolumeClaim:
+            claimName: h2-database
