@@ -19,7 +19,7 @@ spec:
         type: backend
     spec:
       containers:
-        - image: ghcr.io/pm4fs25match-maker/match-maker-backend:v0.0.1
+        - image: ghcr.io/pm4fs25match-maker/match-maker-backend:v0.0.3
           imagePullPolicy: Always
           name: backend
           env:
